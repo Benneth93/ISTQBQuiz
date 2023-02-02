@@ -1,0 +1,58 @@
+@page
+@using System.Drawing
+@model ISTQBQuiz.Pages.Result
+
+@{
+    var numberOfCorrectAnswers = Model._correctAnswers;
+    var questions = Model._questions;
+    var answers = Model._answers;
+    var userAnswers = Model._userAnswers;
+    var maxQuestions = Model._maxQuestions;
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/ResultPageStylesheet.css" type="text/css" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <h1>Number of Correct Answers = @numberOfCorrectAnswers / @maxQuestions</h1>
+    @{
+        double percentage;
+        if (numberOfCorrectAnswers > 0) percentage = ((double)numberOfCorrectAnswers / maxQuestions) * 100;
+        else percentage = 0;
+        var colour = "";
+        var result = "";
+        
+        if (percentage > 65){
+            colour = "Chartreuse";
+            result = "PASS";
+        }
+        else{
+            colour = "Red";
+            result = "FAIL";
+        }
+        <h1 style="color:@colour">@result</h1>
+    }
+    
+    <table>
+        <th>QustionIDs</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>YourAnswer</th>
+        @for (var i = 0; i < maxQuestions; i++)
+        {
+            <tr>
+                <td>@questions[i].QuestionId</td>
+                <td><image src="data:image/png;base64,@questions[i].image"/></td>
+                <td>@answers[i].Answer</td>
+                <td>@userAnswers[i].Answer</td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>

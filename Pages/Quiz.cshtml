@@ -1,0 +1,21 @@
+﻿@page
+@model ISTQBQuiz.Pages.QuizModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/QuizPageStylesheet.css" type="text/css" />
+
+<div class="QuizFrame">
+       
+      <form method="post">
+                <p>Question Number: @Model._questionNumber</p>
+          <image class="currentQuestion" src='data:image/png;base64,@Model._currentQuestion'></image>
+          
+            <table>
+                <th><input type="submit" value="a" name="answer" /></th>
+                <th><input type="submit" value="b" name="answer"/></th>
+                <th><input type="submit" value="c" name="answer"/></th>
+                <th><input type="submit" value="d" name="answer"/></th>
+            </table>  
+        </form>
+</div>

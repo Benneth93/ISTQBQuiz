@@ -1,0 +1,15 @@
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\ISTQBQuiz.exe
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\appsettings.Development.json
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\appsettings.json
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\ISTQBQuiz.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\ISTQBQuiz.deps.json
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\ISTQBQuiz.runtimeconfig.json
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\ISTQBQuiz.pdb
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.Mvc.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.Razor.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.Helpers.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.WebPages.Deployment.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.WebPages.Razor.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\System.Web.WebPages.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\Microsoft.Web.Infrastructure.dll
+C:\Projects\ISTQBQuiz\ISTQBQuiz\bin\Debug\net6.0\publish\MySqlConnector.dll
