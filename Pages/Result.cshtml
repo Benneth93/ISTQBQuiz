@@ -8,17 +8,9 @@
     var answers = Model._answers;
     var userAnswers = Model._userAnswers;
     var maxQuestions = Model._maxQuestions;
-    Layout = null;
 }
 <link rel="stylesheet" href="~/css/ResultPageStylesheet.css" type="text/css" />
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
+<div class="Result">
     <h1>Number of Correct Answers = @numberOfCorrectAnswers / @maxQuestions</h1>
     @{
         double percentage;
@@ -54,5 +46,3 @@
         }
     </table>
 </div>
-</body>
-</html>
