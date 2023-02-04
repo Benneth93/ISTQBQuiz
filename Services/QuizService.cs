@@ -9,7 +9,7 @@ public static class QuizService
     public static List<AnswerModel> _answers { get; set; }
     public static List<QuestionModel> _questions { get; set; }
     public static List<AnswerModel> _userAnswers { get; set; }
-    public static readonly int _maxQuestions = 5;
+    public static readonly int _maxQuestions = 40;
     
     static QuizService()
     {
