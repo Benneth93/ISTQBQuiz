@@ -36,6 +36,7 @@ namespace ISTQBQuiz.Pages
         public void OnGet()
         {
             //Initialize the quiz on page load
+            QuizService._questionIndex = 0;
             QuizService.GetQuestionImages();
 
             _currentQuestion = QuizService.GetQuestion();

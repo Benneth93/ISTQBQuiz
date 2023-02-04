@@ -1,9 +1,7 @@
-﻿using ISTQBQuiz.Interfaces;
+﻿using ISTQBQuiz.Dtos;
+using ISTQBQuiz.Interfaces;
 using ISTQBQuiz.Models;
 using MySqlConnector;
-using System.Data;
-using ISTQBQuiz.Dtos;
-using ISTQBQuiz.Pages;
 
 namespace ISTQBQuiz.Services
 {
@@ -127,6 +125,31 @@ namespace ISTQBQuiz.Services
             command.ExecuteReader();
             _quizDbConnection.Close();
 
+        }
+
+        public List<TestResultDto> GetTestResults()
+        {
+            var sql = $@"SELECT * FROM QuestionSets.TestHistory";
+            var testResults = new List<TestResultDto>();
+            
+            _quizDbConnection.Open();
+            using (var command = new MySqlCommand(sql, _quizDbConnection))
+            {
+                using MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    testResults.Add(new TestResultDto
+                    {
+                        TestResultID = reader.GetInt32("TestResultID"),
+                        CorrectAnswers = reader.GetInt32("CorrectAnswers"),
+                        Percentage = reader.GetDouble("Percentage"),
+                        Result = reader.GetString("Result"),
+                        DateAndTimeOfTest = reader.GetString("DateTimeOfTest")
+                    });
+                }
+            }
+
+            return testResults;
         }
     }
 }

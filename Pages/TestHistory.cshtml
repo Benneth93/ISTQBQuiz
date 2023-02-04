@@ -2,8 +2,28 @@
 @model ISTQBQuiz.Pages.TestHistory
 
 @{
+    var testHistory = Model._testHistory;
 }
 
 <div class="TestHistory">
     <h1>Test History page</h1>
+    <table>
+        <th>TestResultID</th>
+        <th>CorrectAnswers</th>
+        <th>Percentage</th>
+        <th>Result</th>
+        <th>DateTimeOfTest</th>
+        
+        @foreach (var testResult in testHistory)
+        {
+            var resultColor = @testResult.Percentage > 65 ? "chartreuse" : "red";
+            <tr>
+                <td>@testResult.TestResultID</td>
+                <td>@testResult.CorrectAnswers</td>
+                <td>@testResult.Percentage</td>
+                <td style="color: @resultColor" >@testResult.Result</td>
+                <td>@testResult.DateAndTimeOfTest</td>
+            </tr>
+        }
+    </table>
 </div>
