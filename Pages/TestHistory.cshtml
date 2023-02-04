@@ -1,12 +1,14 @@
 @page
 @model ISTQBQuiz.Pages.TestHistory
-
 @{
     var testHistory = Model._testHistory;
+    var passPercentage = Model._passPercentage;
+    var failPercentage = Model._failPercentage;
 }
 
 <div class="TestHistory">
-    <h1>Test History page</h1>
+    <h1>Test History</h1>
+    <h1 style="color: chartreuse">Pass Rate:@passPercentage %</h1>
     <table>
         <th>TestResultID</th>
         <th>CorrectAnswers</th>
