@@ -9,8 +9,8 @@ public static class QuizService
     public static List<AnswerModel> _answers { get; set; }
     public static List<QuestionModel> _questions { get; set; }
     public static List<AnswerModel> _userAnswers { get; set; }
-    public static readonly int _maxQuestions = 40;
-
+    public static readonly int _maxQuestions = 5;
+    
     static QuizService()
     {
         _questionIndex = 0;
@@ -56,6 +56,26 @@ public static class QuizService
         }
 
         _questionIndex = 0;
+        RecordResult(numberOfCorrectAnswers);
+        
         return numberOfCorrectAnswers;
+    }
+
+    public static void RecordResult(int numberOfCorrectAnswers)
+    {
+        var percentage = ((double)numberOfCorrectAnswers / _maxQuestions) * 100;
+        var testResult = percentage > 65 ? "PASS" : "FAIL";
+        
+        var result = new TestResultModel
+        {
+            Percentage = percentage,
+            Result = testResult,
+            CorrectAnswers = numberOfCorrectAnswers,
+            DateAndTimeOfTest = DateTime.Now.ToString("dd-MM-yyyy HH:mm")
+        };
+
+        var dbService = new QuizDatabaseService();
+        dbService.RecordResultToDatabase(result);
+
     }
 }

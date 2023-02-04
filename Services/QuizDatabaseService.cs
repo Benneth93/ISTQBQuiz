@@ -2,6 +2,8 @@
 using ISTQBQuiz.Models;
 using MySqlConnector;
 using System.Data;
+using ISTQBQuiz.Dtos;
+using ISTQBQuiz.Pages;
 
 namespace ISTQBQuiz.Services
 {
@@ -112,6 +114,19 @@ namespace ISTQBQuiz.Services
             questionIDs = numbers.ToList();
 
             return questionIDs;
+        }
+
+        public void RecordResultToDatabase(TestResultModel result)
+        {
+            var sql = @$"INSERT INTO QuestionSets.TestHistory
+                        (CorrectAnswers, Percentage, Result, DateTimeOfTest)
+                        VALUES ({result.CorrectAnswers}, {result.Percentage}, '{result.Result}', '{result.DateAndTimeOfTest}')";
+
+            var command = new MySqlCommand(sql, _quizDbConnection);
+            _quizDbConnection.Open();
+            command.ExecuteReader();
+            _quizDbConnection.Close();
+
         }
     }
 }
